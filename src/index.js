@@ -8,10 +8,6 @@ import store from './stores'
 import Login from './components/index/Login'
 import Index from './components/index/Index'
 
-import 'weui'
-import 'react-weui/build/packages/react-weui.css'
-import './index.css'
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {Page} from 'react-weui'
-import View from '../components/common/View'
+import 'element-theme-default'
 
 const mapStateToProps = () => {
   return {
@@ -14,11 +13,7 @@ export default () => {
     class extends Component {
       render () {   
         return (
-          <Page ptr={false} infiniteLoader={false} transition={false}>
-            <View>
-              <WrappedComponent {...this.props} />
-            </View>
-          </Page>
+          <WrappedComponent {...this.props} />
         )
       }
     }

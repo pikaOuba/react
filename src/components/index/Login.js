@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import wrap from '../../utils/wrap'
-import { Button } from 'react-weui'
-import './Login.css'
-
+import { Button } from 'element-react'
+import styles from './Login.css'
 class Login extends Component {
   static contextTypes = {
     router: PropTypes.object,
@@ -21,10 +20,9 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <Button className={styles.container} type="primary">
         欢迎登录页面
-        <Button onClick={this.handleClick.bind(this)}>点击我弹框</Button>
-      </div>
+      </Button>
     )
   }
 }
