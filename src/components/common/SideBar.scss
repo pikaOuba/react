@@ -1,0 +1,13 @@
+.sidebar {
+  width: 200px;
+  background: #e5e5e5;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  .actived{
+    background: red;
+  }
+  > div {
+    cursor: pointer;
+  }
+}

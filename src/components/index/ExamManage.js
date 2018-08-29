@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import wrap from '../../utils/wrap'
-import './Index.scss'
+import './ExamManage.scss'
 
-class Index extends Component {
+class ExamManage extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
@@ -12,14 +12,14 @@ class Index extends Component {
   render() {
     return (
       <div>
-        欢迎首页
+        审核管理
       </div>
     )
   }
 }
 
-Index = connect(() => {
+ExamManage = connect(() => {
   return {}
-})(Index)
-Index = wrap()(Index)
-export default Index
+})(ExamManage)
+ExamManage = wrap()(ExamManage)
+export default ExamManage

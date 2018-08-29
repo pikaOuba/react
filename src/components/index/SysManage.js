@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import wrap from '../../utils/wrap'
-import './Index.scss'
+import './SysManage.scss'
 
-class Index extends Component {
+class SysManage extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
@@ -12,14 +12,14 @@ class Index extends Component {
   render() {
     return (
       <div>
-        欢迎首页
+        系统管理
       </div>
     )
   }
 }
 
-Index = connect(() => {
+SysManage = connect(() => {
   return {}
-})(Index)
-Index = wrap()(Index)
-export default Index
+})(SysManage)
+SysManage = wrap()(SysManage)
+export default SysManage

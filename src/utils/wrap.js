@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import 'element-theme-default'
+import Page from '../components/common/Page'
+import '../index.css'
 
 const mapStateToProps = () => {
   return {
+    // sidebarActived: state.common.sidebarActived
   }
 }
 
@@ -13,7 +16,9 @@ export default () => {
     class extends Component {
       render () {   
         return (
-          <WrappedComponent {...this.props} />
+          <Page>
+            <WrappedComponent {...this.props} />
+          </Page>
         )
       }
     }
