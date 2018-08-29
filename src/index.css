@@ -4,4 +4,13 @@
 }
 .view {
   width: 100%;
+  overflow: auto;
+}
+.innerContainer {
+  min-width: 1200px;
+}
+/* reset-antd */
+.ant-menu-dark.ant-menu-inline .ant-menu-item {
+  margin: 0;
+  padding: 0;
 }

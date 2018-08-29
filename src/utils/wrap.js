@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import 'element-theme-default'
+import 'antd/dist/antd.css'
 import Page from '../components/common/Page'
 import '../index.css'
 

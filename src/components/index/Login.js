@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import wrap from '../../utils/wrap'
-import { Button } from 'element-react'
+import { Button } from 'antd'
 import styles from './Login.scss'
 class Login extends Component {
   
