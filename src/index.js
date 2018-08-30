@@ -8,9 +8,10 @@ import store from './stores'
 import Login from './components/index/Login'
 import Index from './components/index/Index'
 import TelserverManage from './components/index/TelserverManage'
-import ExamManage from './components/index/ExamManage'
+//import ExamManage from './components/index/ExamManage'
 import SysManage from './components/index/SysManage'
 import ChargeManage from './components/index/ChargeManage'
+import Organization from './components/index/manage/Organization'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,11 +19,11 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/login" component={Login}/>
         <AuthorizedRoute exact path="/" component={Index}/>
-        <AuthorizedRoute path="/telservermanage" component={TelserverManage}/> 
-        <AuthorizedRoute path="/exammanage" component={ExamManage}/> 
-        <AuthorizedRoute path="/sysmanage" component={SysManage}/> 
-        <AuthorizedRoute path="/chargemanage" component={ChargeManage}/> 
-        
+        <AuthorizedRoute path="/telservermanage/" component={TelserverManage}/> 
+        {/* <AuthorizedRoute path="/exammanage" component={ExamManage}/>  */}
+        <AuthorizedRoute path="/sysmanage/" component={SysManage}/> 
+        <AuthorizedRoute path="/chargemanage/" component={ChargeManage}/> 
+        <AuthorizedRoute path="/sysmanage/organization/" component={Organization}/> 
         {/* <AuthorizedRoute exact path="/" component={Home}/>*/}
       </Switch>
     </Router>

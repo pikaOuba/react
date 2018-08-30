@@ -1,18 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-// import { setSideBarActived } from '../../stores/common'
 import { Menu, Icon } from 'antd'
 import styles from './SideBar.scss'
 
+const MenuItem = Menu.Item
 class SideBar extends Component {
-
-  constructor(props){
-    super(props)
-    this.state = {
-      collapsed: false
-    }
-  }
-
   static contextTypes = {
     router: PropTypes.object
   }
@@ -21,90 +13,62 @@ class SideBar extends Component {
     dispatch: PropTypes.func
   }
 
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  }
-  
-  handleClick(url) {
+  componentWillMount(){
     const { history: {location} } = this.context.router
-    if (location.pathname === url) return
-    if (url === 'sysmanage'){
-      this.setState({isExpand: !this.state.isExpand})
+    localStorage.setItem('activeBar', location.pathname)
+    const urlStr = location.pathname.split('/sysmanage')
+    if (urlStr.length === 2 ){
+      localStorage.setItem('defaultOpenKeys', '/sysmanage/')
     } else {
-      return this.context.router.history.push(url)
+      localStorage.removeItem('defaultOpenKeys')
     }
   }
 
-  sidebarItem = [
-    {name: '进件管理', url: '/a'},
-    {name: '话务管理', url: '/telservermanage/'},
-    {name: '审核管理', url: '/exammanage/'},
-    {name: '系统设置', url: 'sysmanage'},
-    {name: '充值', url: '/chargemanage/'}
-  ]
 
-  handleClickItem({item, key, keyPath}){
+  handleClick(url) {
+    const { history: {location} } = this.context.router
+    localStorage.setItem('activeBar', location.pathname)
+    return this.context.router.history.push(url)
+  }
 
-    console.log(item, key, keyPath)
-    //return this.context.router.history.replace(key)
-    // const { history: {location} } = this.context.router
-    // // if (location.pathname === key) return
-    return this.context.router.history.replace(key)
+  handleClickItem({ key }){
+    localStorage.setItem('activeBar', key)
+    return this.context.router.history.push(key)
   }
 
   render() {
-    // const { history: {location} } = this.context.router
-    // const { isExpand } = this.state
-    console.log('render', window.location.href)
+    const activeBar = localStorage.getItem('activeBar')
     return (
-      // <div className={styles.sidebar}>
-      //   {this.sidebarItem.map((item, index) => {
-      //     return (
-      //     <div onClick={this.handleClick.bind(this, item.url)}
-      //       key={index}
-      //       className={item.url === location.pathname ? styles.actived : ''}
-      //     >
-      //       {item.name}
-      //       {item.url === 'sysmanage' && isExpand && <div>
-      //         <div>1</div>
-      //         <div>2</div>
-      //         <div>3</div>
-      //       </div>}
-      //     </div>)
-      //   })}
-      // </div>
       <div className={styles.sidebar}>
         <Menu
           defaultSelectedKeys={['/']}
-          defaultOpenKeys={['sub1']}
+          selectedKeys={[activeBar]}
+          defaultOpenKeys={[localStorage.getItem('defaultOpenKeys')]}
           mode="inline"
           theme="dark"
           onClick={this.handleClickItem.bind(this)}
-          inlineCollapsed={this.state.collapsed}
         >
-          <Menu.Item key="/" >
+          <MenuItem key="/" >
             <Icon type="pie-chart" />
             <span>进件管理</span>
-          </Menu.Item>
-          <Menu.Item key="/telservermanage/">
+          </MenuItem>
+          <MenuItem key="/telservermanage/">
             <Icon type="desktop" />
             <span>话务管理</span>
-          </Menu.Item>
-          <Menu.Item key="/exammanage/">
+          </MenuItem>
+          <MenuItem key="/exammanage/">
             <Icon type="inbox" />
             <span>审核管理</span>
-          </Menu.Item>
+          </MenuItem>
           <Menu.SubMenu key="/sysmanage/" title={<span><Icon type="mail" /><span>系统设置</span></span>}>
-            <Menu.Item key="5">机构管理</Menu.Item>
-            <Menu.Item key="6">角色配置</Menu.Item>
-            <Menu.Item key="7">审核二维码</Menu.Item>
+            <Menu.Item key="/sysmanage/organization">机构管理</Menu.Item>
+            <Menu.Item key="/sysmanage/6">角色配置</Menu.Item>
+            <Menu.Item key="/sysmanage/7">审核二维码</Menu.Item>
           </Menu.SubMenu>
-          <Menu.Item key="/chargemanage/">
+          <MenuItem key="/chargemanage/">
             <Icon type="inbox" />
             <span>充值</span>
-          </Menu.Item>
+          </MenuItem>
         </Menu>
       </div>
     )

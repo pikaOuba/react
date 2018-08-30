@@ -10,8 +10,8 @@ body,html {
   width: 100%;
   position: relative;
   .header {
-    height: 56px;
-    background: black;
+    height: 64px;
+    background: #19233E;
     color: #fff;
     position: fixed;
     top: 0;
@@ -22,12 +22,12 @@ body,html {
     display: flex;
     position: fixed;
     bottom: 0;
-    top: 56px;
-    padding-left: 200px;
+    top: 64px;
+    padding-left: 176px;
     left: 0;
     right: 0;
     .sidebar {
-      width: 200px;
+      width: 176px;
       background: #e5e5e5;
       position: fixed;
       height: 100%;
