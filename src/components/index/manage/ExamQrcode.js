@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import wrap from '../../utils/wrap'
-import './SysManage.scss'
+import wrap from '../../../utils/wrap'
+import './ExamQrcode.scss'
 
-class SysManage extends Component {
+class ExamQrcode extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
@@ -12,14 +12,14 @@ class SysManage extends Component {
   render() {
     return (
       <div>
-        系统管理
+        审核二维码管理
       </div>
     )
   }
 }
 
-SysManage = connect(() => {
+ExamQrcode = connect(() => {
   return {}
-})(SysManage)
-SysManage = wrap()(SysManage)
-export default SysManage
+})(ExamQrcode)
+ExamQrcode = wrap()(ExamQrcode)
+export default ExamQrcode

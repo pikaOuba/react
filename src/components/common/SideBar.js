@@ -62,8 +62,8 @@ class SideBar extends Component {
           </MenuItem>
           <Menu.SubMenu key="/sysmanage/" title={<span><Icon type="mail" /><span>系统设置</span></span>}>
             <Menu.Item key="/sysmanage/organization">机构管理</Menu.Item>
-            <Menu.Item key="/sysmanage/6">角色配置</Menu.Item>
-            <Menu.Item key="/sysmanage/7">审核二维码</Menu.Item>
+            <Menu.Item key="/sysmanage/role">角色配置</Menu.Item>
+            <Menu.Item key="/sysmanage/examqrcode">审核二维码</Menu.Item>
           </Menu.SubMenu>
           <MenuItem key="/chargemanage/">
             <Icon type="inbox" />
