@@ -3,21 +3,14 @@ body,html {
   margin: 0;
   height: 100%;
   width: 100%;
+}
+* {
   box-sizing: border-box;
 }
 .wrapper {
   height: 100%;
   width: 100%;
   position: relative;
-  .header {
-    height: 64px;
-    background: #19233E;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 111;
-  }
   .container {
     display: flex;
     position: fixed;

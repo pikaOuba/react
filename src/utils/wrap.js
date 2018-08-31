@@ -14,6 +14,10 @@ export default () => {
   return (WrappedComponent) => connect(mapStateToProps) (
     
     class extends Component {
+      componentDidMount() {
+        document.getElementsByClassName('ant-calendar-range-picker-separator')[0].innerHTML = '至'
+      }
+
       render () {   
         return (
           <Page>

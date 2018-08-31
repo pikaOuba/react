@@ -1,0 +1,55 @@
+.content {
+  .search {
+    height: 228px;
+    background: #fff;
+    padding: 40px;
+    .searchRow {
+      display: flex;
+      align-items: center;
+      .downLoad {
+        color: #5878FF;
+        cursor: pointer;
+        margin-left: 40px;
+      }
+    }
+    > .searchRow:nth-child(2),
+    > .searchRow:nth-child(3) {
+      margin-top: 24px;
+    }
+    .selectLabel {
+      color: #001933;
+      margin-right: 12px;
+    }
+    .searchGroups {
+      position: relative;
+      width: 268px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      .input {
+        height: 40px;
+        line-height: 40px;
+        border-radius: 0 4px 4px 0px;
+        position: absolute;
+        left: 88px;
+        top: -1px;
+      }
+    }
+    .minnWidthRow {
+      width: 1271px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+  .tableContainer {
+    margin-top: 16px;
+  }
+}

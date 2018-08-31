@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 import wrap from '../../utils/wrap'
-import { Table, Button, Select, Input } from 'antd'
-import './TelserverManage.scss'
+import Button from '../common/Button'
+import { Table, Select, Input, DatePicker } from 'antd'
+import styles from './TelserverManage.scss'
 
 class TelserverManage extends Component {
   static contextTypes = {
@@ -131,8 +133,54 @@ class TelserverManage extends Component {
 
   render() {
     return (
-      <div>
-        话务管理
+      <div className={styles.content}>
+        <div className={styles.search}>
+          <div className={styles.searchRow}>
+            <div>
+              <span className={styles.selectLabel}>渠道</span>
+              <Select defaultValue="请选择" style={{ width: 128 }} onChange={this.handleSelect.bind(this)} className='searchSelect'>
+                <Select.Option value="第一线下渠道">第一线下渠道</Select.Option>
+                <Select.Option value="第二线下渠道">第二线下渠道</Select.Option>
+                <Select.Option value="第三线下渠道">第三线下渠道</Select.Option>
+                <Select.Option value="第四线下渠道">第四线下渠道</Select.Option>
+              </Select>
+            </div>
+            <div className='rangeDate'>
+              <span className={`ml24 ${styles.selectLabel}`}>导入时间</span>
+              <DatePicker.RangePicker
+                defaultValue={[moment(), moment().add('7', 'days')]}
+                format={'YYYY-MM-DD'}
+                allowClear={false}
+              />
+            </div>
+            <div>
+              <span className={`ml24 ${styles.selectLabel}`}>状态</span>
+              <Select defaultValue="请选择" style={{ width: 88 }} onChange={this.handleSelect.bind(this)} className='searchSelect'>
+                <Select.Option value="未处理">未处理</Select.Option>
+                <Select.Option value="处理">处理</Select.Option>
+              </Select>
+            </div>
+            <div>
+              <span className={`ml24 ${styles.selectLabel}`}>通话结果</span>
+              <Select defaultValue="请选择" style={{ width: 100 }} onChange={this.handleSelect.bind(this)} className='searchSelect'>
+                <Select.Option value="未处理">未处理</Select.Option>
+                <Select.Option value="处理">处理</Select.Option>
+              </Select>
+            </div>
+            <div className={`ml24 ${styles.searchGroups}`}>
+              <Select defaultValue="身份证" style={{ width: 88 }} onChange={this.handleSelect.bind(this)} className='searchSelect groupSelect'>
+                <Select.Option value="身份证">身份证</Select.Option>
+                <Select.Option value="姓名">姓名</Select.Option>
+                <Select.Option value="电话">电话</Select.Option>
+              </Select>
+              <Input placeholder="填写姓名/电话/身份证" className={styles.input}/>
+            </div>
+          </div>
+          <div className={styles.searchRow}>
+            <Button buttonValue='查询' width={100} height={40}/>
+            <div className='ml24'><Button buttonValue='重置' width={68} height={40} borderColor='#DCDFE6' fontColor='#5878FF' backgroundColor='#fff'/></div>
+          </div>
+        </div>
         <Table
           onRowClick= {this.onRowClick} 
           columns={this.columns} dataSource={this.data} 

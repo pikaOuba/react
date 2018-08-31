@@ -62,29 +62,29 @@ class SideBar extends Component {
               <span>话务管理</span>
             </div>
           </MenuItem>
-          <MenuItem key="/exammanage/">
+          {/* <MenuItem key="/exammanage/">
             <div className='menuItem'>
               <Icon type="inbox" />
               <span>审核管理</span>
             </div>
-          </MenuItem>
+          </MenuItem> */}
           <Menu.SubMenu key="/sysmanage/" title={<div className='menuItem'><Icon type="mail" /><span>系统设置</span></div>}>
-            <MenuItem key="/sysmanage/organization">
-              <div className='subMeunItem'>机构管理</div>
-            </MenuItem>
             <MenuItem key="/sysmanage/role">
-              <div className='subMeunItem'>角色配置</div>
+              <div className='subMeunItem'>添加角色</div>
             </MenuItem>
-            <MenuItem key="/sysmanage/examqrcode">
+            <MenuItem key="/sysmanage/organization">
+              <div className='subMeunItem'>添加员工</div>
+            </MenuItem>
+            {/* <MenuItem key="/sysmanage/examqrcode">
               <div className='subMeunItem'>审核二维码</div>
-            </MenuItem>
+            </MenuItem> */}
           </Menu.SubMenu>
-          <MenuItem key="/chargemanage/">
+          {/* <MenuItem key="/chargemanage/">
             <div className='menuItem'>
               <Icon type="inbox" />
               <span>充值</span>
             </div>
-          </MenuItem>
+          </MenuItem> */}
         </Menu>
       </div>
     )

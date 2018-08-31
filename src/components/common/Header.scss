@@ -1,0 +1,51 @@
+.header {
+  height: 64px;
+  background: #19233E;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px 0 32px;
+  .companyName {
+    cursor: pointer;
+    width: 200px;
+    height: 56px;
+    line-height: 56px;
+  }
+  .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #C8CDE0;
+    line-height: normal;
+    > div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    > div:nth-child(1) {
+      margin-right: 40px;
+    }
+    >div:nth-child(2) {
+      cursor: pointer;
+    }
+    > div:nth-child(2):hover {
+      color: #F5222D;
+    }
+    .avatar {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+    }
+    .signOut {
+      width: 16px;
+      margin-right: 12px;
+    }
+  }
+  
+}

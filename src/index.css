@@ -5,11 +5,20 @@
 .view {
   width: 100%;
   overflow: auto;
+  background: #f8fafc;
 }
 .innerContainer {
   min-width: 1200px;
 }
+/* common */
+.ml24 {
+  margin-left: 24px;
+}
+
 /* reset-antd */
+.menuUl {
+  padding-top: 24px;
+}
 .ant-menu-dark.ant-menu-inline .ant-menu-item {
   margin: 0;
   padding: 0;
@@ -59,4 +68,103 @@
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
   background: #19233E;
   box-shadow: none;
+}
+.ant-select-arrow:before {
+  content: '\E606'!important;
+}
+.ant-select-arrow {
+  color: #667280;
+  margin-top: -8px;
+}
+.searchSelect .ant-select-selection--single,
+.searchSelect  .ant-select-selection__rendered{
+  height: 40px;
+  line-height: 40px;
+}
+.ant-calendar-picker-input.ant-input:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+.ant-calendar-input-wrap,
+.ant-calendar-picker-icon,
+.ant-calendar-date-panel .ant-calendar-range-middle {
+  display: none;
+}
+.ant-calendar-picker-input.ant-input {
+  border: none;
+  outline: none;
+  height: 40px;
+  line-height: 40px;
+
+}
+.ant-calendar-range-picker-input {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  height: 40px;
+  line-height:40px;
+  text-align: left;
+  padding-left: 12px;
+  width: 128px;
+}
+.ant-calendar-range-picker-separator {
+  color: #000000;
+  margin: 0 12px 0 9px;
+  height: 40px;
+  line-height:40px;
+}
+.ant-calendar-picker .ant-input {
+  padding: 0;
+}
+.rangeDate {
+  height: 40px;
+  line-height: 40px;
+}
+.ant-calendar{
+  margin-top: 42px;
+}
+.groupSelect .ant-select-selection{
+  border-radius: 4px 0 0 4px;
+  border-right: none;
+}
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  padding: 0;
+  text-align: left!important;
+  padding-left: 40px;
+  background: #fff;
+}
+.ant-table-thead > tr > th {
+  padding: 13px 0;
+  color: #667280;
+  padding-left: 40px;
+}
+.ant-table-tbody > tr > td {
+  padding: 15px 0;
+  color: #001933 ;
+  cursor: pointer;
+  white-space: nowrap;
+  padding-left: 40px;
+}
+.lightColor {
+  color: #667280!important;
+}
+.deepColor {
+  color: #001933!important ;
+}
+.buleColor {
+  color:  #5878FF!important ;
+}
+.ant-checkbox-inner{
+  height: 14px;
+  width: 14px;
+}
+.ant-table table {
+  border-radius: 0;
+}
+/* 分页 */
+.ant-table-pagination.ant-pagination {
+  margin: 16px 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
