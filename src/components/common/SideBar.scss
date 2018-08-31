@@ -1,13 +1,7 @@
 .sidebar {
   width: 176px;
-  background: #001529;
+  background: #232F49;
   position: fixed;
   height: 100%;
   left: 0;
-  .actived{
-    background: #0091ff;
-  }
-  > div {
-    cursor: pointer;
-  }
 }

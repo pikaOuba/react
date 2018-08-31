@@ -46,28 +46,44 @@ class SideBar extends Component {
           defaultOpenKeys={[localStorage.getItem('defaultOpenKeys')]}
           mode="inline"
           theme="dark"
+          inlineIndent={6}
+          className="menuUl"
           onClick={this.handleClickItem.bind(this)}
         >
           <MenuItem key="/" >
-            <Icon type="pie-chart" />
-            <span>进件管理</span>
+            <div className='menuItem'>
+              <Icon type="pie-chart" />
+              <span>进件管理</span>
+            </div>
           </MenuItem>
           <MenuItem key="/telservermanage/">
-            <Icon type="desktop" />
-            <span>话务管理</span>
+            <div className='menuItem'>
+              <Icon type="desktop" />
+              <span>话务管理</span>
+            </div>
           </MenuItem>
           <MenuItem key="/exammanage/">
-            <Icon type="inbox" />
-            <span>审核管理</span>
+            <div className='menuItem'>
+              <Icon type="inbox" />
+              <span>审核管理</span>
+            </div>
           </MenuItem>
-          <Menu.SubMenu key="/sysmanage/" title={<span><Icon type="mail" /><span>系统设置</span></span>}>
-            <Menu.Item key="/sysmanage/organization">机构管理</Menu.Item>
-            <Menu.Item key="/sysmanage/role">角色配置</Menu.Item>
-            <Menu.Item key="/sysmanage/examqrcode">审核二维码</Menu.Item>
+          <Menu.SubMenu key="/sysmanage/" title={<div className='menuItem'><Icon type="mail" /><span>系统设置</span></div>}>
+            <MenuItem key="/sysmanage/organization">
+              <div className='subMeunItem'>机构管理</div>
+            </MenuItem>
+            <MenuItem key="/sysmanage/role">
+              <div className='subMeunItem'>角色配置</div>
+            </MenuItem>
+            <MenuItem key="/sysmanage/examqrcode">
+              <div className='subMeunItem'>审核二维码</div>
+            </MenuItem>
           </Menu.SubMenu>
           <MenuItem key="/chargemanage/">
-            <Icon type="inbox" />
-            <span>充值</span>
+            <div className='menuItem'>
+              <Icon type="inbox" />
+              <span>充值</span>
+            </div>
           </MenuItem>
         </Menu>
       </div>
