@@ -12,64 +12,69 @@ class TelserverManage extends Component {
     router: PropTypes.object
   }
 
-  // rowSelection = {
-  //   onChange: (selectedRowKeys, selectedRows) => {
-  //     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-  //   },
-  //   getCheckboxProps: record => ({
-  //     disabled: record.name === 'Disabled User', // Column configuration not to be checked
-  //     name: record.name,
-  //   }),
-  // };
+  formatTiem(time) {
+    return [moment(time).utcOffset(8).format('YYYY-MM-DD'), moment(time).utcOffset(8).format('hh:mm')]
+  }
 
   columns = [{
-    title: '创建时间',
+    title: '分配时间',
     dataIndex: 'date',
-    render: text => <span>{text}</span>,
+    width: 126,
+    render: text => <span className='lightColor'>{this.formatTiem(text)[0]}<br/>{this.formatTiem(text)[1]}</span>,
   }, {
     title: '渠道',
     dataIndex: 'channel',
-    key: 'channel'
+    key: 'channel',
+    width: 154
   }, {
     title: '姓名',
     dataIndex: 'name',
-    key:'name'
+    key:'name',
+    width: 106,
+    render: name => <span className='buleColor'>{name}</span>
   }, {
     title: '电话',
     dataIndex: 'mobile',
-    key: 'mobile'
+    key: 'mobile',
+    width: 124
   }, {
     title: '芝麻分',
-    dataIndex: 'nazhimaPointme',
-    key: 'zhimaPoint'
+    dataIndex: 'zhimaPoint',
+    key: 'zhimaPoint',
+    width: 88
   }, {
     title: '对接话务员',
     dataIndex: 'telCustomName',
-    key: 'telCustomName'
+    key: 'telCustomName',
+    width: 136
+  }, {
+    title: '呼叫次数',
+    dataIndex: 'callCount',
+    key: 'callCount',
+    width: 96
+  }, {
+    title: '状态  ',
+    dataIndex: 'status',
+    key: 'status',
+    width: 88
   },{ 
     title: '操作',
     dataIndex: '',
     key: 'operation',
+    width: 160,
     render: (text,record,index) => {
       return (
-        <span>
-          <Button>呼叫</Button>
-          <Button>短信</Button>
-      </span>
+        <div className='row'>
+          <div className='mr8'><Button buttonValue='呼叫' borderColor='#DCDFE6' backgroundColor='#fff' fontColor='#001933' width={68} height={32}/></div>
+          <Button buttonValue='短信' borderColor='#DCDFE6' backgroundColor='#fff' fontColor='#001933' width={68} height={32}/>
+        </div>
       )
     }
-  }, {
-    title: '呼叫次数',
-    dataIndex: 'callCount',
-    key: 'callCount'
-  }, {
-    title: '状态  ',
-    dataIndex: 'status',
-    key: 'status'
   }, {
     title: '通话结果',
     dataIndex: '',
     key: 'conversation',
+    width: 116,
     render: (text,record,index) => {
       return (
         <span>
@@ -86,18 +91,33 @@ class TelserverManage extends Component {
     title: '备注',
     dataIndex: '',
     key: 'remark',
+    width: 176,
     render: (text,record,index) => {
       return (
-        <Input placeholder="备注" />
+        <Input placeholder="请填写" />
+      )
+    }
+  }, {
+    title: '',
+    dataIndex: '',
+    key: 'submit',
+    render: (text,record,index) => {
+      return (
+        <Button buttonValue="提交" />
       )
     }
   }]
 
   data = [{
     key: '1',
-    date: '2015-05-06',
+    date: '2018-08-30T05:11:50.000Z',
     name: '小二',
     channel: '第一线下渠道',
+    mobile: '186****8080',
+    callCount: 6,
+    status: '未处理',
+    zhimaPoint: 558,
+    telCustomName: '话务员1'
   }, {
     key: '2',
     date: '2015-05-06',

@@ -168,3 +168,12 @@
   left: 50%;
   transform: translate(-50%);
 }
+
+/* 自定义 */
+.row {
+  display: flex;
+  align-items: center;
+}
+.mr8 {
+  margin-right: 8px;
+}
