@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import 'antd/dist/antd.css'
 import Page from '../components/common/Page'
 import '../index.css'
+import '../assests/css/font.css'
 
 const mapStateToProps = () => {
   return {

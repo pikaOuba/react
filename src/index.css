@@ -8,13 +8,27 @@
   background: #f8fafc;
 }
 .innerContainer {
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 /* common */
 .ml24 {
   margin-left: 24px;
 }
-
+.mt20 {
+  margin-top: 20px;
+}
+.mt43 {
+  margin-top: 43px;
+}
+.alignCenter {
+  text-align: center;
+}
+.line {
+  height: 1px;
+  width: 100%;
+  background:  #DADEE1;
+  margin: 38px 0 ;
+}
 /* reset-antd */
 .menuUl {
   padding-top: 24px;
@@ -176,4 +190,83 @@
 }
 .mr8 {
   margin-right: 8px;
+}
+
+.miniContent {
+  min-width: 1610px;
+}
+.miniIndexContent {
+  min-width: 1340px;
+}
+.ant-checkbox-inner:after {
+  left: 3.571429px;
+}
+
+/* modal */
+.ant-modal-header {
+  padding: 0;
+  padding-top: 43px;
+  border-bottom: none;
+}
+.ant-modal-content {
+  text-align: center;
+}
+.ant-modal-footer {
+  padding: 0;
+  border-top: none;
+  text-align: center;
+  padding-bottom:40px; 
+}
+.ant-modal-footer .ant-btn{
+  padding: 0 31px;
+}
+.ant-modal-footer .ant-btn:nth-child(2) {
+  background: #5878FF ;
+}
+.ant-modal-body {
+  padding: 24px 48px;
+}
+.ant-modal-body .telerConatiner {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.telerItem {
+  width: 128px;
+  text-align: center;
+  height: 64px;
+  line-height: 64px;
+  border: 1px solid #DCDFE6;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  color: #001933;
+}
+.ant-modal-body .telerConatiner .telerItem:nth-child(3n+2) {
+  margin:0  16px;
+}
+.activedItem {
+  border: 1px solid #5878FF;
+}
+.fileInput {
+  visibility: hidden;
+  width: 0.1px;
+}
+.detailFooter {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detailBody {
+  text-align: left;
+}
+.detailBodyBebal {
+  width: 72px;
+  display: inline-block;
+}
+.detailBodyBebalVal{
+  width: 209px;
+  display: inline-block;
+  
 }

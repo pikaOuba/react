@@ -1,0 +1,33 @@
+.content {
+  background-color: #FFFFFF;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px 0px 40px;
+  margin-bottom: 16px;
+  .pageName {
+    color: #001933;
+  }
+  .createRoleButton {
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #5878FF;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    line-height: 40px;
+  }
+
+  .modalContainer {
+    display: flex!important;
+    .roleMethodContainer{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  
+}
+

@@ -4,12 +4,29 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import wrap from '../../utils/wrap'
 import Button from '../common/Button'
-import { Table, Select, Input, DatePicker } from 'antd'
+import { Table, Select, Input, DatePicker, Modal } from 'antd'
 import styles from './TelserverManage.scss'
 
 class TelserverManage extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      massageVisible: false,
+      name: ''
+    }
+  }
+
   static contextTypes = {
     router: PropTypes.object
+  }
+
+  showMassageModal = () => { this.setState({massageVisible: true}) }
+
+  hideMassageModal = () => {this.setState({massageVisible: false }) }
+
+  handleMassage(row) {
+    this.showMassageModal()
+    this.setState({name: row.name})
   }
 
   formatTiem(time) {
@@ -57,16 +74,16 @@ class TelserverManage extends Component {
     dataIndex: 'status',
     key: 'status',
     width: 88
-  },{ 
+  }, { 
     title: '操作',
     dataIndex: '',
     key: 'operation',
     width: 160,
-    render: (text,record,index) => {
+    render: (text) => {
       return (
         <div className='row'>
           <div className='mr8'><Button buttonValue='呼叫' borderColor='#DCDFE6' backgroundColor='#fff' fontColor='#001933' width={68} height={32}/></div>
-          <Button buttonValue='短信' borderColor='#DCDFE6' backgroundColor='#fff' fontColor='#001933' width={68} height={32}/>
+          <Button buttonValue='短信' borderColor='#DCDFE6' backgroundColor='#fff' fontColor='#001933' width={68} height={32} onClick={this.handleMassage.bind(this, text)}/>
         </div>
       )
     }
@@ -75,24 +92,24 @@ class TelserverManage extends Component {
     dataIndex: '',
     key: 'conversation',
     width: 116,
-    render: (text,record,index) => {
+    render: () => {
       return (
         <span>
           <Select defaultValue="请选择" style={{ width: 120 }} onChange={this.handleSelect.bind(this)}>
-          <Select.Option value="有意向">有意向</Select.Option>
-          <Select.Option value="无意向">无意向</Select.Option>
-          <Select.Option value="未接通">未接通</Select.Option>
-          <Select.Option value="挂断">挂断</Select.Option>
-        </Select>
-      </span>
+            <Select.Option value="有意向">有意向</Select.Option>
+            <Select.Option value="无意向">无意向</Select.Option>
+            <Select.Option value="未接通">未接通</Select.Option>
+            <Select.Option value="挂断">挂断</Select.Option>
+          </Select>
+        </span>
       )
     }
   }, {
     title: '备注',
     dataIndex: '',
     key: 'remark',
-    width: 176,
-    render: (text,record,index) => {
+    width: 204,
+    render: () => {
       return (
         <Input placeholder="请填写" />
       )
@@ -101,7 +118,7 @@ class TelserverManage extends Component {
     title: '',
     dataIndex: '',
     key: 'submit',
-    render: (text,record,index) => {
+    render: () => {
       return (
         <Button buttonValue="提交" />
       )
@@ -140,20 +157,17 @@ class TelserverManage extends Component {
   }
 
   changePageSize(current, pageSize){
-    console.log('pageNumber',current, pageSize)
+    console.log('pageNumber', current, pageSize)
   }
 
   handleChagePage(current, pageSize) {
-    console.log('pageNumber',current, pageSize)
-  }
-
-  onRowClick(record, index, event) {
-    console.log('row', record, index, event)
+    console.log('pageNumber', current, pageSize)
   }
 
   render() {
+    const { massageVisible, name } = this.state
     return (
-      <div className={styles.content}>
+      <div className={`miniContent ${styles.content}`}>
         <div className={styles.search}>
           <div className={styles.searchRow}>
             <div>
@@ -202,7 +216,6 @@ class TelserverManage extends Component {
           </div>
         </div>
         <Table
-          onRowClick= {this.onRowClick} 
           columns={this.columns} dataSource={this.data} 
           pagination={
             {
@@ -211,11 +224,24 @@ class TelserverManage extends Component {
               pageSizeOptions: ['2', '3', '4'],
               showSizeChanger: true,
               showQuickJumper: true,
-              showTotal: (e)=>{return "共 "+e+" 条"},
+              showTotal: (e)=>{return `共${e}条`},
               onChange: (current, pageSize)=>{this.handleChagePage(current, pageSize)},
               onShowSizeChange:(current, pageSize)=>{this.changePageSize(current, pageSize)},
             }
-            }/>
+          }/>
+        <Modal
+          title={`发送短信给${name}`}
+          visible={massageVisible}
+          onOk={this.hideMassageModal}
+          onCancel={this.hideMassageModal}
+          okText="确认"
+          cancelText="取消"
+          width={304}
+          closable={false}
+          destroyOnClose={true}
+        >
+          <Input.TextArea style={{width: '200px'}} rows={3} />
+        </Modal>
       </div>
     )
   }

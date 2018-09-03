@@ -1,0 +1,14 @@
+.dg1 {
+  display: flex; // background: black;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  .dg2 {
+    width: 76px; // background: red;
+    text-align: left;
+    .dg3 {
+      height: 100%; // background: yellow;
+      width: 200px
+    }
+  }
+}

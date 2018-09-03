@@ -41,7 +41,7 @@ export default class Page extends Component {
             </div>
           </div>
         </div>
-        </LocaleProvider>
+      </LocaleProvider>
     )
   }
 }

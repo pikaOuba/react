@@ -1,44 +1,56 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import wrap from '../../utils/wrap'
-import { Button } from 'antd'
+import { Input } from 'antd'
+import md5 from 'md5'
+import Button from '../common/Button'
+import { signin } from '../../stores/user'
 import styles from './Login.scss'
 class Login extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      password: ''
+    }
+  }
   
   static contextTypes = {
     router: PropTypes.object
   }
-  
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    // Are we adding new items to the list?
-    // Capture the scroll position so we can adjust scroll later.
-    console.log(111, prevProps, prevState)
+
+  hanleLogin(){
+    const { name, password } = this.state
+    this.props.dispatch(signin({name, password:md5(password)}))
+      .catch(error => {console.log(error)})
+      .then(()=> {
+        return this.context.router.history.replace('/')
+      })
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(222, prevProps, prevState, snapshot)
+  handleChangeName(e) {
+    this.setState({name: e.target.value})
+  }
+
+  handleChangePassword(e) {
+    this.setState({password: e.target.value})
+  }
+
+  handleShowRegister() {
+    this.context.router.history.push('/resister')
   }
 
   render() {
     return (
-      <div className={styles.container}>
-        <div className={styles.container1}>123456</div>
-        <Button type="primary">欢迎登录页面 </Button>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">欢迎登录页面 </Button><br/>
-        <Button type="primary">lallalalala </Button>
-        
+      <div className={styles.loginPage}>
+        <div className={styles.login}>
+          <div>登录</div>
+          <Input placeholder="账号" className={styles.inputItem} onChange={this.handleChangeName.bind(this)} />
+          <Input placeholder="密码" className={styles.inputItem} onChange={this.handleChangePassword.bind(this)} />
+          <div className={styles.inputItem} onClick={this.hanleLogin.bind(this)}><Button buttonValue='登录' width={200}></Button></div>
+          <div className={`${styles.inputItem} ${styles.mt20}`} onClick={this.handleShowRegister.bind(this)}>还没有账号点击申请</div>
+        </div>
       </div>
       
     )
@@ -48,5 +60,4 @@ class Login extends Component {
 Login = connect(() => {
   return {}
 })(Login)
-Login = wrap()(Login)
 export default Login

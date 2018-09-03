@@ -1,0 +1,28 @@
+@import "../../../assests/css/_common.scss";
+.content {
+  width: $width;
+  min-width: $min-width;
+  .head {
+    width: $width;
+    display: flex;
+    height: $common-height;
+    background: white;
+    align-items: center;
+    padding-left: $padding;
+    justify-content: space-between;
+  }
+  .table {
+    margin-top: 16px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+  }
+  .mr8 {
+    margin-right: 8px;
+  }
+  .selectLabel {
+    color: #001933;
+    margin-right: 12px;
+  }
+}

@@ -12,6 +12,7 @@ class Button extends Component {
     width: PropTypes.number,
     height: PropTypes.number,
     lineHeight: PropTypes.number,
+    onClick: PropTypes.func
   }
 
   static defaultProps = {
@@ -22,17 +23,25 @@ class Button extends Component {
     height: 36 
   }
 
+  handleClick() {
+    const { onClick } = this.props
+    if (this.props.onClick){
+      onClick()
+    }
+  }
+
   render() {
     const { buttonValue, backgroundColor, fontColor, height, width, borderColor } = this.props
     return (
-       <div className={styles.button} 
+      <div className={styles.button} 
         style={{ backgroundColor,
-                 color: fontColor,
-                 height: `${height}px`,
-                 lineHeight: `${height}px`,
-                 width: `${width}px`,
-                 border: `1px solid ${borderColor}`
-              }} >
+          color: fontColor,
+          height: `${height}px`,
+          lineHeight: `${height}px`,
+          width: `${width}px`,
+          border: `1px solid ${borderColor}`
+        }}
+        onClick={this.handleClick.bind(this)} >
         {buttonValue}
       </div>
     )

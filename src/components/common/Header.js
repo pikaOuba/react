@@ -28,7 +28,7 @@ class Header extends Component {
 
   render() {
     return (
-       <div className={styles.header}>
+      <div className={styles.header}>
         <div className={styles.companyName}>大森</div>
         <div className={styles.user}>
           <div>

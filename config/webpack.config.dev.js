@@ -192,7 +192,7 @@ module.exports = {
           {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
+              fallback: 'style-loader',
               use: [
                 {
                   loader: 'css-loader',
@@ -203,7 +203,7 @@ module.exports = {
                     localIdentName: '[name]__[local]___[hash:base64:5]'
                   }
                 },
-              'sass-loader'
+                'sass-loader'
               ]
             })
           },

@@ -6,6 +6,7 @@ import AuthorizedRoute from './components/common/AuthorizedRoute'
 import store from './stores'
 
 import Login from './components/index/Login'
+import Reginster from './components/index/Register'
 import Index from './components/index/Index'
 import TelserverManage from './components/index/TelserverManage'
 import ExamManage from './components/index/ExamManage'
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/login" component={Login}/>
+        <Route exact path="/register" component={Reginster}/>
         <AuthorizedRoute exact path="/" component={Index}/>
         <AuthorizedRoute path="/telservermanage/" component={TelserverManage}/> 
         <AuthorizedRoute path="/exammanage" component={ExamManage}/> 

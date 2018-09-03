@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
 import styles from './SideBar.scss'
 
 const MenuItem = Menu.Item
@@ -52,13 +52,14 @@ class SideBar extends Component {
         >
           <MenuItem key="/" >
             <div className='menuItem'>
-              <Icon type="pie-chart" />
+              {/* <Icon type="" /> */}
+              <i className="iconfont icon-jinjianguanlipress mr8"></i>
               <span>进件管理</span>
             </div>
           </MenuItem>
           <MenuItem key="/telservermanage/">
             <div className='menuItem'>
-              <Icon type="desktop" />
+              <i className="iconfont icon-huawuguanlipress mr8"></i>
               <span>话务管理</span>
             </div>
           </MenuItem>
@@ -68,7 +69,7 @@ class SideBar extends Component {
               <span>审核管理</span>
             </div>
           </MenuItem> */}
-          <Menu.SubMenu key="/sysmanage/" title={<div className='menuItem'><Icon type="mail" /><span>系统设置</span></div>}>
+          <Menu.SubMenu key="/sysmanage/" title={<div className='menuItem'> <i className="iconfont icon-xitongguanlipress mr8"></i><span>系统设置</span></div>}>
             <MenuItem key="/sysmanage/role">
               <div className='subMeunItem'>添加角色</div>
             </MenuItem>
