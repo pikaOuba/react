@@ -54,7 +54,7 @@ class SideBar extends Component {
             <div className='menuItem'>
               {/* <Icon type="" /> */}
               <i className="iconfont icon-jinjianguanlipress mr8"></i>
-              <span>进件管理</span>
+              <span>配置管理</span>
             </div>
           </MenuItem>
           <MenuItem key="/telservermanage/">

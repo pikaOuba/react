@@ -106,12 +106,12 @@ class TelserverManage extends Component {
     }
   }, {
     title: '备注',
-    dataIndex: '',
     key: 'remark',
     width: 204,
-    render: () => {
+    render: (text) => {
+      console.log(text)
       return (
-        <Input placeholder="请填写" />
+        <Input placeholder={text} />
       )
     }
   }, {
